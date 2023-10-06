@@ -1,0 +1,99 @@
+project:
+  version: 1.0.0
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
+# 应用服务 WEB 访问端口
+server:
+  port: 8000
+  servlet:
+    context-path: /api
+spring:
+  cache:
+    type: redis
+    cache-names: blog
+  devtools:
+    restart:
+      enabled: true
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+  profiles:
+    active: dev
+  application:
+    name: uaena_blog
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      logic-delete-field: "isDelete"
+      logic-not-delete-value: 0
+      logic-delete-value: 1
+      id-type: auto
+
+sa-token:
+  # token名称 (同时也是cookie名称)
+  token-name: Bearer
+  # token有效期，单位s 默认30天, -1代表永不过期
+  timeout: 3600
+  # token临时有效期 (指定时间内无操作就视为token过期) 单位: 秒
+#  activity-timeout: 3600
+  # 是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录)
+  is-concurrent: false
+  # 在多人登录同一账号时，是否共用一个token (为true时所有登录共用一个token, 为false时每次登录新建一个token)
+  is-share: false
+  # token风格
+  token-style: uuid
+  # 是否输出操作日志
+  is-log: true
+#网站域名
+website:
+  config:
+    url: https://www.lidengxiang.top/
+    cdn: https://lidengxiang.top/
+### 七牛云
+qq:
+  client_id: 102024615
+  client_secret: OeleJjvsZ6PVN1Qa
+  redirect_url: https%3A%2F%2Fwww.lidengxiang.top%2Fcallback
+mq:
+  SMS_EXCHANGE: SMSCODE_EXCHANGE
+  SMS_QUEUE: SMSCODE_QUEUE
+  SMS_ROUTING_KEY: SMS
+phone:
+  VALIDATE_CODE: SMS_159620392
+  ORDER_NOTICE: SMS_159771588
+  DEFAULT_NOTICE: SMS_257771439
+cache:
+  ttl: '{"user":60,"dept":30}'  #自定义某些缓存空间的过期时间
+oauth:
+  gitee:
+    client_id: ea08e466485f68ea7158209c9c69202d9ef99ce012b47f446d6d5221654b4c77
+    client_secret: 552f4c3a170997e7da3a2182cef43700e5c41f69b33b9595ff2ffa05b703a01b
+    redirect_uri: https%3A%2F%2Fwww.lidengxiang.top%2Foauth%2Fgitee%2Flogin
+  qq:
+    client_id: 102024615
+    app_key: OeleJjvsZ6PVN1Qa
+    redirect_uri: https%3A%2F%2Fwww.lidengxiang.top%2Foauth%2Fqq%2Flogin
+  github:
+    client_id: acec6bb3d04321c409fe
+    client_secret: e23bdd3a580bd39e688d02f9f4e61c6bf032ad86
+    redirect_uri: https%3A%2F%2Fwww.lidengxiang.top%2Foauth%2Fgithub%2Flogin
+qiniuyun:
+  end_point: lidengxiang.top
+  access_key: FRMyr6yfm88JgtXwjILNam_uomMzbWOk7WrDWzjh
+  secret: P8rPFTvtJ-RJrQDD5ORMLFdO0j9xw7gOGpeo4dib
+  bucket_name: "lidengxiang"
+  img_folder: "blog/img/"
+  file_folder: "blog/file/"
+  md_folder: "blog/md/"
+
+
+logging:
+  level:
+    com.ldx.blog: info
