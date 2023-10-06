@@ -18,7 +18,12 @@
         <version>2.6.13</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+    </repositories>
     <dependencies>
         <!-- Sa-Token 整合 Redis （使用 jdk 默认序列化方式） -->
         <dependency>
@@ -97,11 +102,6 @@
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
             <version>3.14.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.5.2</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
