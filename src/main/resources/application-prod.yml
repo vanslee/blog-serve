@@ -18,7 +18,7 @@ spring:
     host: localhost
     port: 5672
     username: lidengxiang
-    password: zhou2001.
+    password: qazwsxedc123..
     publisher-confirm-type: correlated #开启发布确认.默认是关闭的
     publisher-returns: true # 开启消息回退,交换机找不到队列,会直接丢弃消息,会退给生产者
   mail:
@@ -36,6 +36,9 @@ files:
 redirect:
   url: "https://www.lidengxiang.top/#/loading/"
   error-page: "https://www.lidengxiang.top/#/login/"
+
+project:
+  version: 1.0.0
 
 mybatis-plus:
   configuration:
